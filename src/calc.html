@@ -1,0 +1,204 @@
+<html lang="en">
+    <head id="header">
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+        <meta charset="UTF-8"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+        <script type="text/javascript" src="js/calc.js"></script>
+        <script type="text/javascript" src="js/constants.js"></script>
+
+        <title>IAAF Scoring Calculator</title>
+    </head>
+    <body>
+        <div class="ui main container">
+            <h1 class="ui inverted top attached block header">
+                Points Calculator
+                <div class="sub header">Calculate scoring points for several athletics events</div>
+            </h1>
+
+            <div class="ui bottom attached segment">
+                <div class="ui accordion">
+                    <div class="active title">
+                        <i class="dropdown icon"></i>
+                        Introduction
+                    </div>
+                    <div class="active content">
+                        This calculator will quickly calculate the points for a
+                        performance of any selected athletics event. The points
+                        calculated should match the points in the 2017 IAAF Scoring
+                        Tables.
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui top attached tabular menu">
+                <div class="active item" data-tab="tab-normal">Points</div>
+                <div class="item" data-tab="tab-reverse">Performance</div>
+            </div>
+            <div class="ui bottom attached segment tab active" data-tab="tab-normal">
+                <form class="ui tiny form">
+                    <h4 class="ui dividing header">Choose Event</h4>
+                    <div class="event_lookup">
+                        <div class="two fields">
+                            <div class="grouped fields normal cb_indoor_outdoor">
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input class="normal" type="radio" name="cb_indoor_outdoor" checked="checked">
+                                        <label>Outdoor</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input class="normal" type="radio" name="cb_indoor_outdoor">
+                                        <label>Indoor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grouped fields normal cb_men_women">
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input class="normal" type="radio" name="cb_men_women" checked="checked">
+                                        <label>Men</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input class="normal" type="radio" name="cb_men_women">
+                                        <label>Women</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui search selection dropdown">
+                                <input type="hidden" name="dd_event">
+                                <div class="default text">Select Event</div>
+                                <i class="dropdown icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="ui dividing header">Performance</h4>
+                    <div class="three fields">
+                        <div class="field">
+                            <label>Hours</label>
+                            <input type="text" name="goal_hours"  placeholder="hh">
+                        </div>
+                        <div class="field">
+                            <label>Minutes</label>
+                            <input type="text" name="goal_minutes" placeholder="mm">
+                        </div>
+                        <div class="field">
+                            <label>Seconds</label>
+                            <input type="text" name="goal_seconds" placeholder="ss.ss">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Metres</label>
+                        <input type="text" name="goal_metres"  placeholder="m.cm">
+                    </div>
+
+
+                    <div class="ui error message"></div>
+                    <div class="ui primary submit button">Calculate</div>
+                    <div class="ui reset button">Clear</div>
+                </form>
+            </div>
+            <div class="ui bottom attached segment tab" data-tab="tab-reverse">
+                <form class="ui tiny form">
+                    <div class="event_lookup">
+                        <h4 class="ui dividing header">Choose Event</h4>
+                        <div class="two fields">
+                            <div class="grouped fields reverse cb_indoor_outdoor">
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input class="reverse" type="radio" name="cb_indoor_outdoor" checked="checked">
+                                        <label>Outdoor</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input class="reverse" type="radio" name="cb_indoor_outdoor">
+                                        <label>Indoor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grouped fields reverse cb_men_women">
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input class="reverse" type="radio" name="cb_men_women" checked="checked">
+                                        <label>Men</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input class="reverse" type="radio" name="cb_men_women">
+                                        <label>Women</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui search selection dropdown">
+                                <input type="hidden" name="dd_event">
+                                <div class="default text">Select Event</div>
+                                <i class="dropdown icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="ui transition hidden results segment ">
+                <div class="ui centered grid">
+                    <div class="row">
+                        <div class="ui pace statistic">
+                            <div class="value">
+                                1
+                            </div>
+                            <div class="label">
+                                per km
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transition hidden remainder row">
+                        <div class="ui grey horizontal mini statistic">
+                            <div class="value">
+                                01:20.22
+                            </div>
+                            <div class="label">
+                                for remaining 300 m
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div id="footer">
+            <div class="ui divider"></div>
+            <div class="ui center aligned container">
+                <div class="ui divided horizontal footer link list">
+                    <div class="item">
+                        run with <a href="https://caltaf.com/">Caltaf</a>
+                    </div>
+                    <div class="item">
+                        <a href="https://github.com/tratzla/lapcalculator"><i class="github icon"></i>source</a>
+                    </div>
+                    <div class="item">
+                        urged by <a href="https://lratz.ca" target="_blank">luke</a>
+                    </div>
+                    <div class="item">
+                        <a href="mailto:webmaster@caltaf.com" target="_blank">report bugs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
