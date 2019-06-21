@@ -330,7 +330,7 @@ $(document).ready(function() {
     console.log("REAY!");
     points_form.form({
         fields: {
-          reverse_points: 'number'
+          reverse_points: ['empty', 'number']
         },
         onSuccess: function(event,fields){
             var points = parseFloat(points_form.form("get value", "reverse_points"));
