@@ -285,6 +285,10 @@ function calc_performance(points, event_props){
 
         if(plus > 0) ret = plus;
         if(minus > 0) ret = minus;
+        if(plus > 0 && minus > 0){
+            if(plus > minus) ret = minus;
+            if(minus > plus) ret = plus;
+        }
         console.log(`Found perf: ${minus} and ${plus}`);
 
         return ret;
