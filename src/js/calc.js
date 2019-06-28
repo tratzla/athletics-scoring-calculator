@@ -180,8 +180,9 @@ function reverse_lookup(){
     }
     console.log(`Perf for IAAF Points ${points} in ${event_props.name} are  ${perf_str}`);
     var newrow = $('<tr class="transition hidden">')
-                    .append($('<td>').text(event_props.gender))
-                    .append($('<td>').text(event_props.season))
+                    //.append($('<td>').text(event_props.gender))
+                    //.append($('<td>').text(event_props.season))
+                    .append($('<td>').text(`${event_props.gender} (${event_props.season})`))
                     .append($('<td>').text(event_props.name))
                     .append($('<td>').text(perf_str))
                     .append($('<td>').text(points));
@@ -232,8 +233,9 @@ function points_lookup(){
     points = calc_points(perf,event_props);
     console.log(`IAAF Points for perf: ${perf} in ${event_props.name} are ${points}`);
     var newrow = $('<tr class="transition hidden">')
-                    .append($('<td>').text(event_props.gender))
-                    .append($('<td>').text(event_props.season))
+                    //.append($('<td>').text(event_props.gender))
+                    //.append($('<td>').text(event_props.season))
+                    .append($('<td>').text(`${event_props.gender} (${event_props.season})`))
                     .append($('<td>').text(event_props.name))
                     .append($('<td>').text(perf_str))
                     .append($('<td>').text(points));
@@ -303,6 +305,7 @@ $(document).ready(function() {
     var evt_form  = $('.event_lookup.form');
 
     $('.ui.tabular.menu .item').tab();
+    $('.ui.accordion').accordion();
 
 
     $('.event_lookup .checkbox').checkbox()

@@ -36,10 +36,23 @@
                         Introduction
                     </div>
                     <div class="active content">
-                        This calculator will quickly calculate the points for a
-                        performance of any selected athletics event. The points
-                        calculated should match the points in the 2017 IAAF Scoring
-                        Tables.
+                        Compare equivalent performances across different
+                        athletics events. Note, scores aren’t designed to
+                        compare men’s and women’s performances.
+                        <p>
+                            The formula used by this calculator closely matches
+                            the official 2017 IAAF Scoring Tables - which are
+                            the most recent as of 2019.
+                        </p>
+                        <p>For official points, consult the official
+                            <a href="https://www.iaaf.org/about-iaaf/documents/technical">
+                                2017 IAAF Scoring Tables.
+                            </a>
+                        </p>
+                        <p>
+                            Tables are normally valid for performances worth
+                            between 0 and 1400 points.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -87,8 +100,8 @@
             </div>
 
             <div class="ui top attached tabular menu">
-                <div class="active item" data-tab="tab-normal">Points</div>
-                <div class="item" data-tab="tab-reverse">Performance</div>
+                <div class="active item" data-tab="tab-normal">Find Points</div>
+                <div class="item" data-tab="tab-reverse">Find Performance</div>
             </div>
             <div class="ui bottom attached segment tab active" data-tab="tab-normal">
                 <form class="ui tiny performance form">
@@ -169,7 +182,7 @@
 
 
             <div class="ui transition results segment ">
-                <table class="ui very basic table">
+                <table class="ui very basic unstackable table">
                     <thead>
                         <tr>
                             <th>
@@ -177,7 +190,6 @@
                                     Clear Table
                                 </button>
                             </th>
-                            <th>Season</th>
                             <th>Event</th>
                             <th>Performance</th>
                             <th>Points</th>
